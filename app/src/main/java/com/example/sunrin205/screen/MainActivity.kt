@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.sunrin205.*
 import com.example.sunrin205.databinding.ActivityMainBinding
+import com.example.sunrin205.school.School
 import com.example.sunrin205.screen.main1.LunchAndScheduleFragment
 import com.example.sunrin205.screen.main2.TimeTableFragment
 import com.example.sunrin205.screen.main3.SeatFragment
@@ -22,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         setContentView(binding.root)
-
-
         supportFragmentManager.beginTransaction().replace(R.id.frame, mainFragment2).commit()
         binding.bottomView.selectedItemId = R.id.schedule
 

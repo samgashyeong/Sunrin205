@@ -1,32 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".screen.LunchAndScheduleFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".screen.LunchAndScheduleFragment">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="일정및 식단"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:background="#000"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/todayLunchTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="오늘의 급식은?"
+                            android:textColor="#000"
+                            android:textSize="35sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ProgressBar
+                            android:id="@+id/LunchPgb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="@+id/todayLunch"
+                            app:layout_constraintEnd_toEndOf="@+id/todayLunch"
+                            app:layout_constraintStart_toStartOf="@+id/todayLunch"
+                            app:layout_constraintTop_toTopOf="@+id/todayLunch" />
+
+
+                        <TextView
+                            android:id="@+id/todayLunch"
+                            android:layout_width="0dp"
+                            android:layout_height="300dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#000"
+                            android:elevation="5dp"
+                            android:background="@drawable/recycler_view_stroke"
+                            tools:text="응애\n응애\n응애\n응애\n응애\n"
+                            android:gravity="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/todayLunchTv"
+                            app:layout_constraintWidth_percent="0.7" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="7일간의 급식"
+                            android:layout_marginTop="30dp"
+                            android:textColor="#000"
+                            android:textSize="20sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/todayLunch"
+                            app:layout_constraintWidth_percent="0.8" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/lunchRecyclerView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            tools:listitem="@layout/row_lunch_and_date"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView3"
+                            app:layout_constraintWidth_percent="0.8" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="50dp">
+                        <TextView
+                            android:id="@+id/todayDateTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="오늘의 일정은?"
+                            android:textColor="#000"
+                            android:textSize="35sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/todayDate"
+                            android:layout_width="0dp"
+                            android:layout_height="300dp"
+                            android:layout_marginTop="10dp"
+                            tools:text="일정없음"
+                            android:background="@drawable/recycler_view_stroke"
+                            android:elevation="5dp"
+                            android:gravity="center"
+                            android:textColor="#000"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/todayDateTv"
+                            app:layout_constraintWidth_percent="0.7" />
+
+                        <ProgressBar
+                            android:id="@+id/datePgb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="@+id/todayDate"
+                            app:layout_constraintEnd_toEndOf="@+id/todayDate"
+                            app:layout_constraintStart_toStartOf="@+id/todayDate"
+                            app:layout_constraintTop_toTopOf="@+id/todayDate" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="7일간의 일정"
+                            android:layout_marginTop="30dp"
+                            android:textColor="#000"
+                            android:textSize="20sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/todayDate"
+                            app:layout_constraintWidth_percent="0.8" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/dateRecyclerView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textView4"
+                            app:layout_constraintWidth_percent="0.8" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>
