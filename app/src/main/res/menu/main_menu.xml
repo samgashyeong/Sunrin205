@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/lunchAndDate"
+        android:title="급식 및 일정"
+        android:icon="@drawable/ic_baseline_rice_bowl_24"/>
+
+    <item
+        android:id="@+id/schedule"
+        android:title="시간표"
+        android:icon="@drawable/ic_baseline_date_range_24"/>
+
+    <item
+        android:id="@+id/seat"
+        android:title="좌석"
+        android:icon="@drawable/ic_baseline_airline_seat_recline_normal_24"/>
+    <item
+        android:id="@+id/setting"
+        android:title="설정"
+        android:icon="@drawable/ic_baseline_settings_24"/>
+</menu>
