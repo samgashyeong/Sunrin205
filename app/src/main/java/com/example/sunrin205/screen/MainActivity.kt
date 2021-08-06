@@ -1,11 +1,14 @@
 package com.example.sunrin205.screen
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.sunrin205.*
+import com.example.sunrin205.Calendar.ReturnDate
 import com.example.sunrin205.databinding.ActivityMainBinding
 import com.example.sunrin205.school.School
 import com.example.sunrin205.screen.main1.LunchAndScheduleFragment
@@ -50,6 +53,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+        val date : ReturnDate = ReturnDate()
+        val fdld = date.returnTodayWeekendFirstDayLastDay()
+        Log.d(TAG, "onCreate: 마지막날 오늘날$fdld")
     }
 
     private fun changeFragment(fragment: Fragment){
