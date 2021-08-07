@@ -10,6 +10,6 @@ import kr.go.neis.api.Schedule
 class MainViewModel : ViewModel() {
     val foodList : MutableLiveData<ArrayList<Menu>> = MutableLiveData()
     val scheduleList : MutableLiveData<ArrayList<Schedule>> = MutableLiveData()
-    val timeTable : MutableLiveData<ArrayList<timeTableData>> = MutableLiveData()
+    val timeTable : MutableLiveData<timeTableData> = MutableLiveData()
     val studentSeat : MutableLiveData<ArrayList<String>> = MutableLiveData()
 }

@@ -11,8 +11,8 @@ import com.example.sunrin205.data.LunchAndDate
 class  LunchAndDateAdapter(val DataList:ArrayList<LunchAndDate>): RecyclerView.Adapter<LunchAndDateAdapter.MyViewHolder>(){
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        val date  = itemView.findViewById<TextView>(R.id.dateTv)
-        val data = itemView.findViewById<TextView>(R.id.dataTv)
+        val date: TextView = itemView.findViewById(R.id.dateTv)
+        val data: TextView = itemView.findViewById(R.id.dataTv)
 
     }
 
@@ -24,7 +24,9 @@ class  LunchAndDateAdapter(val DataList:ArrayList<LunchAndDate>): RecyclerView.A
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.date.text = DataList[position].date
         holder.data.text = DataList[position].Data
+        if(DataList[position].Data.isEmpty()){
+            holder.data.text = "정보가 없습니다."
+        }
     }
     override fun getItemCount() = 7
-
 }

@@ -65,7 +65,7 @@ class LunchAndScheduleFragment : Fragment() {
                 binding.todayDate.text = vM.scheduleList.value!![day-1].toString()
             }
             for(i in 0..7){
-                dateAdapter.add(LunchAndDate("${month}월 ${day+i}일", vM.scheduleList.value!![day-1].toString()))
+                dateAdapter.add(LunchAndDate("${month}월 ${day+i}일", vM.scheduleList.value!![day-1+i].toString()))
                 binding.dateRecyclerView.adapter = LunchAndDateAdapter(dateAdapter)
             }
         })
@@ -79,7 +79,7 @@ class LunchAndScheduleFragment : Fragment() {
                 binding.todayLunch.text = vM.foodList.value!![day-1].lunch
             }
             for(i in 0..7){
-                menuAdapter.add(LunchAndDate("${month}월 ${day+i}일", vM.foodList.value!![day-1].lunch))
+                menuAdapter.add(LunchAndDate("${month}월 ${day+i}일", vM.foodList.value!![day-1+i].lunch))
                 binding.lunchRecyclerView.adapter = LunchAndDateAdapter(menuAdapter)
             }
         }
