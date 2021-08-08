@@ -3,32 +3,26 @@ package com.example.sunrin205.screen
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
-import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.sunrin205.*
 import com.example.sunrin205.Calendar.ReturnDate
-import com.example.sunrin205.data.LunchAndDate
-import com.example.sunrin205.data.lunchData.lunchData
-import com.example.sunrin205.data.timeTableData.timeTableData
 import com.example.sunrin205.databinding.ActivityMainBinding
-import com.example.sunrin205.school.School
-import com.example.sunrin205.screen.main1.LunchAndDateAdapter
 import com.example.sunrin205.screen.main1.LunchAndScheduleFragment
 import com.example.sunrin205.screen.main2.TimeTable
 import com.example.sunrin205.screen.main2.TimeTableFragment
 import com.example.sunrin205.screen.main3.SeatFragment
 import com.example.sunrin205.screen.main4.SettingFragment
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kr.go.neis.api.Menu
 import kr.go.neis.api.Schedule
-import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.awaitResponse
 import retrofit2.converter.gson.GsonConverterFactory
@@ -39,11 +33,15 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var vM : MainViewModel
+
     private val date = Calendar.getInstance().time
+
     private val mainFragment1 by lazy { LunchAndScheduleFragment() }
     private val mainFragment2 by lazy { TimeTableFragment() }
     private val mainFragment3 by lazy { SeatFragment() }
     private val mainFragment4 by lazy { SettingFragment() }
+
+    private lateinit var db : FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -51,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.frame, mainFragment2).commit()
         binding.bottomView.selectedItemId = R.id.schedule
         vM = ViewModelProvider(this).get(MainViewModel::class.java)
+        db = FirebaseFirestore.getInstance()
 
         binding.bottomView.setOnItemSelectedListener {
             when(it.itemId){
@@ -80,6 +79,19 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate: 마지막날 오늘날$fdld")
         getLunchList()
         getTimeTable()
+        getStudentSeat()
+    }
+
+    private fun getStudentSeat() {
+        val list : ArrayList<String> = ArrayList()
+        db.collection("Seat").document("seat").get()
+            .addOnSuccessListener {
+                Log.d(TAG, "getStudentSeat: seat : ${it.data!!["seat"]}")
+                vM.studentSeat.value = it.data!!["seat"] as ArrayList<String>
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "데이터를 불러오는데에 실패하셧습니다.", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun getLunchList() {

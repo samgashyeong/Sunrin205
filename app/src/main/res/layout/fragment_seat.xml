@@ -1,14 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".screen.main3.SeatFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="좌석" />
+        tools:context=".screen.main3.SeatFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/time_table_stroke"
+                android:gravity="center"
+                android:text="교탁"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.5" />
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/time_table_stroke"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/seat_21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_16"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_11"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_1"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/seat_22"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_17"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_7"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_2"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/seat_23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_3"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/seat_24"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_4"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/seat_25"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_20"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+
+                    <TextView
+                        android:id="@+id/seat_5"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:height="50dp"
+                        android:gravity="center"
+                        android:text="X" />
+                </TableRow>
+
+
+            </TableLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
