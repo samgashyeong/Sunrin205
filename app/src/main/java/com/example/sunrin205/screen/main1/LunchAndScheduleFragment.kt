@@ -80,8 +80,8 @@ class LunchAndScheduleFragment : Fragment() {
             }
             for(i in 0..7){
                 menuAdapter.add(LunchAndDate("${month}월 ${day+i}일", vM.foodList.value!![day-1+i].lunch))
-                binding.lunchRecyclerView.adapter = LunchAndDateAdapter(menuAdapter)
             }
+            binding.lunchRecyclerView.adapter = LunchAndDateAdapter(menuAdapter)
         }
     }
 }

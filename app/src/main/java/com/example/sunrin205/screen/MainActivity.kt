@@ -65,10 +65,6 @@ class MainActivity : AppCompatActivity() {
                     changeFragment(mainFragment3)
                     true
                 }
-                R.id.setting ->{
-                    changeFragment(mainFragment4)
-                    true
-                }
                 else->{
                     changeFragment(mainFragment2)
                     true
