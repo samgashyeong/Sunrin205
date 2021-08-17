@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Administrator/StudioProjects/Sunrin205/app/src/main/res/layout/fragment_lunch_and_schedule.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Administrator/StudioProjects/Sunrin205/app/src/main/res/layout/fragment_seat.xml" value="0.25" />
+        <entry key="..\:/Users/Administrator/StudioProjects/Sunrin205/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
+        <entry key="..\:/Users/Administrator/StudioProjects/Sunrin205/app/src/main/res/layout/fragment_time_table.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/StudioProjects/Sunrin205/app/src/main/res/menu/main_menu.xml" value="0.20833333333333334" />
       </map>
     </option>
