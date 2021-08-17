@@ -36,7 +36,7 @@ class SeatFragment : Fragment() {
         vM.studentSeat.observe(requireActivity(), {
             val seatList = vM.studentSeat.value
 
-            for(i in 1..25){
+            for(i in 1..seatList!!.size){
                 val idStr = "seat_$i"
                 val resId = resources.getIdentifier(idStr, "id", requireActivity().packageName)
                 requireActivity().findViewById<TextView>(resId).text = seatList!![i-1]

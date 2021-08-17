@@ -1,6 +1,7 @@
 package com.example.sunrin205.screen.main2
 
 import android.content.ContentValues.TAG
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.example.sunrin205.Calendar.ReturnDate
 import com.example.sunrin205.R
 import com.example.sunrin205.databinding.FragmentTimeTableBinding
 import com.example.sunrin205.screen.MainViewModel
+import com.google.firebase.database.collection.LLRBNode
 import java.util.*
 
 class TimeTableFragment : Fragment() {
@@ -38,7 +40,9 @@ class TimeTableFragment : Fragment() {
         vM = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
 
         vM.timeTable.observe(requireActivity(), {
-            Log.d(TAG, "onViewCreated: vM.timeTable.value!!.hisTimetable : ${vM.timeTable.value!!.hisTimetable}")
+            val today = "${ReturnDate().returnTodayYear()}${ReturnDate().returnTodayMonth()}${ReturnDate().returnTodayWeekendDay()}"
+            val todayWeekendDay = ReturnDate().getDateWeekendDay(today)
+            Log.d(TAG, "onViewCreated: 오늘 날짜 $todayWeekendDay")
             if(vM.timeTable.value!!.hisTimetable != null){
                 val timeTable = vM.timeTable.value!!.hisTimetable[1].row
 
@@ -48,9 +52,38 @@ class TimeTableFragment : Fragment() {
                     if(idStr.count() >= 5){
                         val resId = resources.getIdentifier(idStr, "id", requireActivity().packageName)
                         requireActivity().findViewById<TextView>(resId).text = i.ITRT_CNTNT
+                        if(weekendDay == todayWeekendDay){
+                            requireActivity().findViewById<TextView>(resId).setTextColor(Color.BLACK)
+                        }
                     }
                 }
             }
+        })
+
+        vM.schedule.observe(requireActivity(), {
+            Log.d(TAG, "onViewCreated: schedule observe 실행됨 : ${it}")
+            var result = ""
+            for (i in 0..it.size.minus(1)){
+                Log.d(TAG, "onViewCreated: when문 실행됨 $i")
+                when(i){
+                    0->{
+                        result = result.plus("조회 : ").plus(it[i]).plus("\n")
+                        Log.d(TAG, "onViewCreated: result값 : $result")
+                    }
+                    5->result = result.plus("점심 : ").plus(it[i]).plus("\n")
+                    9->result = result.plus("종례 : ").plus(it[i])
+                    else->{
+                        if(i>5){
+                            result = result.plus("${i-1}교시").plus(it[i]).plus("\n")
+                        }
+                        else{
+                            result = result.plus("${i}교시").plus(it[i]).plus("\n")
+                        }
+                        Log.d(TAG, "onViewCreated: result값 : $result")
+                    }
+                }
+            }
+            binding.scheduleTv.text = result
         })
     }
 }

@@ -12,4 +12,5 @@ class MainViewModel : ViewModel() {
     val scheduleList : MutableLiveData<ArrayList<Schedule>> = MutableLiveData()
     val timeTable : MutableLiveData<timeTableData> = MutableLiveData()
     val studentSeat : MutableLiveData<ArrayList<String>> = MutableLiveData()
+    val schedule : MutableLiveData<ArrayList<String>> = MutableLiveData()
 }

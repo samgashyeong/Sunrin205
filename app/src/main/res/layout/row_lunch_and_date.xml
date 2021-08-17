@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:text="응애\n응애\n응애ffff\n응애\n응애"
+        android:padding="10dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

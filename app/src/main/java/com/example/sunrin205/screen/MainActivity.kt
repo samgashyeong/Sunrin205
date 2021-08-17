@@ -76,6 +76,15 @@ class MainActivity : AppCompatActivity() {
         getLunchList()
         getTimeTable()
         getStudentSeat()
+        getSchedule()
+    }
+
+    private fun getSchedule() {
+        db.collection("Schedule").document("schedule").get()
+            .addOnSuccessListener {
+                vM.schedule.value = it.data!!["schedule"] as ArrayList<String>
+                Log.d(TAG, "getSchedule: itdata : ${it.data!!["schedule"] as ArrayList<String>}")
+            }
     }
 
     private fun getStudentSeat() {
