@@ -107,7 +107,7 @@
 
                             <TextView
                                 android:id="@+id/mon_1"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:height="50dp"
@@ -385,7 +385,7 @@
 
                             <TextView
                                 android:id="@+id/thurs_5"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:height="50dp"
