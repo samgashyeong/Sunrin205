@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sunrin205.Calendar.ReturnDate
 import com.example.sunrin205.R
 import com.example.sunrin205.data.LunchAndDate
 import com.example.sunrin205.databinding.FragmentLunchAndScheduleBinding
@@ -56,8 +57,10 @@ class LunchAndScheduleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vM = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
-
+        val maxDay = ReturnDate().returnMonthMaxDay(-1)
+        var addOneDay: Int
         vM.scheduleList.observe(requireActivity(), {
+            addOneDay = 1
             if(vM.scheduleList.value!![day-1].toString().isEmpty()){
                 binding.todayDate.text = "오늘 일정은 없습니다."
             }
@@ -65,12 +68,19 @@ class LunchAndScheduleFragment : Fragment() {
                 binding.todayDate.text = vM.scheduleList.value!![day-1].toString()
             }
             for(i in 0..7){
-                dateAdapter.add(LunchAndDate("${month}월 ${day+i}일", vM.scheduleList.value!![day-1+i].toString()))
+                if(day+1+i>maxDay){
+                    dateAdapter.add(LunchAndDate("${month+1}월 ${addOneDay++}일", vM.scheduleList.value!![day+i].toString()))
+                }
+                else{
+                    dateAdapter.add(LunchAndDate("${month}월 ${day+i+1}일", vM.scheduleList.value!![day+i].toString()))
+                }
                 binding.dateRecyclerView.adapter = LunchAndDateAdapter(dateAdapter)
             }
         })
 
         vM.foodList.observe(requireActivity(), ){
+            addOneDay = 1
+            Log.d(TAG, "onViewCreated: maxday = $maxDay")
             Log.d(TAG, "onViewCreated: 오늘 급식${vM.foodList.value!![day - 1].lunch}")
             if(vM.foodList.value!![day-1].lunch.isEmpty()){
                 binding.todayLunch.text = "오늘의 급식은 없습니다."
@@ -79,7 +89,12 @@ class LunchAndScheduleFragment : Fragment() {
                 binding.todayLunch.text = vM.foodList.value!![day-1].lunch
             }
             for(i in 0..7){
-                menuAdapter.add(LunchAndDate("${month}월 ${day+i}일", vM.foodList.value!![day-1+i].lunch))
+                if(day+1+i>maxDay){
+                    menuAdapter.add(LunchAndDate("${month+1}월 ${addOneDay++}일", vM.foodList.value!![day+i].lunch))
+                }
+                else{
+                    menuAdapter.add(LunchAndDate("${month}월 ${day+i+1}일", vM.foodList.value!![day+i].lunch))
+                }
             }
             binding.lunchRecyclerView.adapter = LunchAndDateAdapter(menuAdapter)
         }

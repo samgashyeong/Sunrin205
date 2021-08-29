@@ -52,6 +52,7 @@ class TimeTableFragment : Fragment() {
                     if(idStr.count() >= 5){
                         val resId = resources.getIdentifier(idStr, "id", requireActivity().packageName)
                         requireActivity().findViewById<TextView>(resId).text = i.ITRT_CNTNT
+                        Log.d(TAG, "onViewCreated: weekendDay timeTable $weekendDay $todayWeekendDay")
                         if(weekendDay == todayWeekendDay){
                             requireActivity().findViewById<TextView>(resId).setTextColor(Color.BLACK)
                         }

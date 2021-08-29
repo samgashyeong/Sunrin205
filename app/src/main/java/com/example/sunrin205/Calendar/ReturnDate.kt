@@ -23,8 +23,7 @@ class ReturnDate {
     }
 
     fun returnMonthMaxDay(month: Int): Int{
-        cal.add(Calendar.DAY_OF_MONTH, month-1)
-        return cal.getActualMaximum(Calendar.DAY_OF_MONTH)
+        return Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH);
     }
 
     fun returnTodayWeekendFirstDayLastDay(): ArrayList<String> {

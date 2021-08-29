@@ -544,14 +544,14 @@
                         android:id="@+id/scheduleTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="fewfew\nfff"
-                        android:lineSpacingMultiplier="1.2"
-                        android:gravity="center"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
-                        android:textColor="#000"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.2"
                         android:paddingBottom="20dp"
-                        android:textSize="30sp"/>
+                        android:text="로딩중.."
+                        android:textColor="#000"
+                        android:textSize="30sp" />
 
                 </LinearLayout>
             </ScrollView>
