@@ -15,11 +15,11 @@ class ReturnDate {
     }
 
     fun returnTodayMonth(): Int{
-        return SimpleDateFormat("M", Locale.KOREA).format(date).toInt()
+        return SimpleDateFormat("mm", Locale.KOREA).format(date).toInt()
     }
 
     fun returnTodayWeekendDay(): Int{
-        return SimpleDateFormat("d", Locale.KOREA).format(date).toInt()
+        return SimpleDateFormat("dd", Locale.KOREA).format(date).toInt()
     }
 
     fun returnMonthMaxDay(month: Int): Int{
